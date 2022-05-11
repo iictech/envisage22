@@ -7,11 +7,14 @@ import img5 from "./eventimages/Mock IPL.png"
 import img6 from "./eventimages/Reel-o-mania.png"
 import img7 from "./eventimages/Stockify.png"
 import img8 from "./eventimages/Tweeters.png"
+import Footer from "./Footer";
+import Header from "./Header";
 
 
 function App() {
   return (
     <div className="App">
+      <Header/>
       <div class="images">
         <img src={img1} className="img" alt=""/>
         <img src= {img2} className="img" alt=""/>
@@ -22,6 +25,7 @@ function App() {
         <img src= {img7} className="img" alt=""/>
         <img src={img8} className="img" alt=""/>
       </div>
+      <Footer/>
     </div>
   );
 }

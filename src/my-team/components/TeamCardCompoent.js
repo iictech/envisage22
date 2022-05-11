@@ -2,10 +2,13 @@ import React from "react";
 import "../teamCard.css";
 import TeamData from "./TeamData";
 import { AiFillLinkedin } from "react-icons/ai";
+import Header from "../../Header"
+import Footer from "../../Footer"
 const TeamCard = () => {
   return (
     <>
       {" "}
+      <Header/>
       <div className="container">
         {TeamData.map((curr, index) => {
           const { id, name, profession, img } = curr;
@@ -35,6 +38,7 @@ const TeamCard = () => {
           );
         })}
       </div>
+      <Footer/>
     </>
   );
 };

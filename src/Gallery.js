@@ -25,10 +25,13 @@ import newimg7 from "./images/gallery/newimg7.jpg"
 import React from  "react";
 import './App.css';
 import './gallery.css';
+import Footer from "./Footer";
+import Header from "./Header";
 
 function App() {
   return (
     <>
+    <Header/>
     <div className="slidetop">
         <a href="#main"><i className="fas fa-arrow-up"></i></a>
     </div>
@@ -94,6 +97,7 @@ function App() {
             </div>
         </div>
     </div>
+    <Footer/>
     </>
   );
 }
