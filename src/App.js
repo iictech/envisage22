@@ -12,6 +12,9 @@ import DashboardEvents from "./DashboardEvents";
 import Etalk from "./Etalk";
 import Events from "./eventshome";
 import Team from "./my-team/components/teamLayout";
+import Terms from "./Terms";
+import Refund from "./Refund";
+import Privacy from "./Privacy";
 function SignOut() {
   const navigate = useNavigate();
   signOut(auth)
@@ -40,6 +43,9 @@ export default function App() {
         <Route path="/sign-out" exact element={<SignOut />}></Route>
         <Route path="/gallery" exact element={<Gallery />}></Route>
         <Route path="/sponsors" exact element={<Sponsors />}></Route>
+        <Route path="/terms" exact element={<Terms />}></Route>
+        <Route path="/refunds" exact element={<Refund />}></Route>
+        <Route path="/privacy" exact element={<Privacy />}></Route>
       </Routes>
     </Router>
   );

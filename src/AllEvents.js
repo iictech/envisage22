@@ -142,7 +142,7 @@ function Events() {
             setUserData(JSON.parse(localStorage.userData))
          setEventsData(JSON.parse(localStorage.eventsData))
         setLoading(false);
-        }, 4000);
+        }, 10000);
         let subtotal = 0;
         Object.keys(cartItems).forEach(key => {
             subtotal += parseFloat(events.find(event => event.id === key).price);

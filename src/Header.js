@@ -74,9 +74,9 @@ export default function Example() {
               <a href="/sponsors" className="text-base font-medium text-gray-100 hover:text-gray-500">
               Sponsors
               </a>
-              <a href="/contact-us" className="text-base font-medium text-gray-100 hover:text-gray-500">
+              {/* <a href="/contact-us" className="text-base font-medium text-gray-100 hover:text-gray-500">
               Contact Us
-              </a>
+              </a> */}
             </Popover.Group>
             <div className="flex items-center md:ml-12">
               <a href="/sign-in" className="text-base font-medium text-gray-100 hover:text-gray-500">
