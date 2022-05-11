@@ -1,5 +1,5 @@
-import pic1 from "../../../src/images/e-talk/Amitabha_Singh_pic.svg";
-import pic3 from "../../../src/images/e-talk/Gautham_Pasupuleti.svg";
+import pic1 from "../../../src/images/e-talk/rishab.jpeg";
+import pic3 from "../../../src/images/e-talk/vimal.jpeg";
 
 const presentYearGuest = [
   {
