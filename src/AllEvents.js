@@ -88,7 +88,7 @@ function Events() {
         setLoading(true);
         for await (const key of Array.from(Object.keys(eventsData))){
             const ref = doc(db, `users/${userData.uid}/registered`, key);
-            setDoc(ref,eventsData[key]);
+            await setDoc(ref,eventsData[key]);
         }
         setLoading(false);
     }
@@ -134,8 +134,12 @@ function Events() {
     },[eventsData])
     useEffect(() => {
         setcartCounter(Object.keys(cartItems).length);
-        setUserData(JSON.parse(localStorage.userData))
-        setEventsData(JSON.parse(localStorage.eventsData))
+        setLoading(true);
+        setTimeout(() => {
+            setUserData(JSON.parse(localStorage.userData))
+         setEventsData(JSON.parse(localStorage.eventsData))
+        setLoading(false);
+        }, 2000);
         let subtotal = 0;
         Object.keys(cartItems).forEach(key => {
             subtotal += parseFloat(events.find(event => event.id === key).price);
@@ -165,7 +169,7 @@ function Events() {
                         <p>Registration Price : ₹ {event.price}</p>
                         </div>
                         <div className="event-button-container">
-                        <button className="event-register-button" onClick={(e)=>{
+                        {eventsData?.[event.id]?.isRegistered ? <div className='text-base text-blue-700 pb-2'>Registered</div>:<button className="event-register-button" onClick={(e)=>{
                             if(event.isTeamEvent){
                                 setTeamevent(event.id);
                                setTeamOpen(true);
@@ -179,7 +183,7 @@ function Events() {
                         }} disabled={cartItems[event.id] ? true : false}>
                         <div>{cartItems[event.id] ? 'Added To Cart' : 'Add to registration cart'}</div>
                         <div>{cartItems[event.id] ? '' : <FontAwesomeIcon icon={faCartFlatbed} />}</div>
-                        </button>
+                        </button>}
                         </div>
                     </div>
                 ))}
