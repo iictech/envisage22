@@ -3,6 +3,18 @@ import { useEffect, useState } from 'react';
 import {db,auth, onAuthStateChanged, doc, setDoc, getDoc} from "./firebase";
 import {useNavigate} from 'react-router-dom';
 import { nanoid } from 'nanoid';
+const eventsData = { 
+  biz_debate : {
+    isRegistered: false
+  },
+  biz_plan : {isRegistered: false},
+  brain_it_out : {isRegistered: false},
+  case_study : {isRegistered: false},
+  hackathon : {isRegistered: false},
+  mock_ipl : {isRegistered: false},
+  reels : {isRegistered: false},
+  stockify : {isRegistered: false},
+}
 export default function SignUp() {
   const [error,setError] = useState('');
   const navigate = useNavigate();
@@ -27,6 +39,10 @@ export default function SignUp() {
       evg_id: evgId,
       uid: userId
       });
+      for await (const key of Array.from(Object.keys(eventsData))){
+        const ref = doc(db, `users/${userId}/registered`, key);
+        setDoc(ref,eventsData[key]);
+      }
     } catch (error) {
       setError('Something went wrong... please try again');
     }

@@ -2,6 +2,8 @@ import './Events.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChartLine, faExternalLink, faBookOpen, faCartFlatbed, faChartGantt, faBrain, faCode, faBaseballBatBall, faBusinessTime } from '@fortawesome/free-solid-svg-icons'
 import { useEffect, useState } from 'react';
+import {db,auth, onAuthStateChanged, doc, getDoc,setDoc} from "./firebase";
+import { nanoid } from 'nanoid';
 const events = [
     {
         name:'Biz Plan',
@@ -68,16 +70,72 @@ const events = [
         isTeamEvent:false
     }
 ]
+
 function Events() {
     const [linkico, setlinkico] = useState(false);
+    const [loading,setLoading] = useState(false);
     const [cartCounter, setcartCounter] = useState(0);
     const [cartOpen, setcartOpen] = useState(false);
     const [teamOpen, setTeamOpen] = useState(false);
+    const [teamEvent,setTeamevent] = useState();
+    const [eventsData, setEventsData] = useState({});
     const [cartItems, setcartItems] = useState({});
     const [subtotal, setSubtotal] = useState(0);
     const [charges, setCharges] = useState(0);
+    const [userData,setUserData] = useState({});
+    async function registeronfirebase() {
+        setTeamOpen(false);
+        setLoading(true);
+        for await (const key of Array.from(Object.keys(eventsData))){
+            const ref = doc(db, `users/${userData.uid}/registered`, key);
+            setDoc(ref,eventsData[key]);
+        }
+        setLoading(false);
+    }
+    async function displayRazorpay(){
+        //POST request to Nodejs
+        const data = await fetch("https://stormy-journey-29948.herokuapp.com/razorpay",{
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              price: parseFloat(charges + subtotal),
+            }),
+        }).then((t)=> t.json())
+        const options = {
+            key: "rzp_live_u6DNFurSsXh9o3",
+            currency: data.currency,
+            amount: data.amount,
+            description: '',
+            image: 'https://stormy-journey-29948.herokuapp.com/logo.jpg',
+            order_id: data.id,
+            handler: function(response){
+                registeronfirebase();
+            },
+            prefill: {
+                name: userData.name,
+                email: userData.email,
+                contact: userData.number,
+            },
+            notes: {
+               evg_id: userData.evg_id,
+            }
+        };
+      
+        const paymentObject = new window.Razorpay(options)
+        paymentObject.on('payment.failed', function (response){
+          alert("Payment Failed");
+      });
+        paymentObject.open()
+      }
+    useEffect(()=>{
+        localStorage.eventsData = JSON.stringify(eventsData);
+    },[eventsData])
     useEffect(() => {
         setcartCounter(Object.keys(cartItems).length);
+        setUserData(JSON.parse(localStorage.userData))
+        setEventsData(JSON.parse(localStorage.eventsData))
         let subtotal = 0;
         Object.keys(cartItems).forEach(key => {
             subtotal += parseFloat(events.find(event => event.id === key).price);
@@ -88,9 +146,6 @@ function Events() {
   return (
     <div className="event-body">
         <div className="event-container">
-            <div className="event-header">
-                <h1>All Events</h1>
-            </div>
             <div className="event-content">
               <div className="events-list">
                 {events.map((event,index)=>(
@@ -111,12 +166,16 @@ function Events() {
                         </div>
                         <div className="event-button-container">
                         <button className="event-register-button" onClick={(e)=>{
-                            if(events.isTeamEvent){
-
+                            if(event.isTeamEvent){
+                                setTeamevent(event.id);
+                               setTeamOpen(true);
                             } else {
                               setcartItems({...cartItems, [event.id]:true});
+                              setEventsData({...eventsData, [event.id]:{
+                                  isRegistered: true,
+                              }});
+                              e.target.disabled = true;
                             }
-                            e.target.disabled = true;
                         }} disabled={cartItems[event.id] ? true : false}>
                         <div>{cartItems[event.id] ? 'Added To Cart' : 'Add to registration cart'}</div>
                         <div>{cartItems[event.id] ? '' : <FontAwesomeIcon icon={faCartFlatbed} />}</div>
@@ -163,8 +222,9 @@ function Events() {
                               <div>₹ {parseFloat(charges + subtotal)}</div>
                           </div>
                           <button className='cart-checkout-button'
-                          onClick={()=>{
-                              
+                          onClick={(e)=>{
+                            displayRazorpay();
+                            e.target.innerText = 'Please wait...';
                           }}
                           >
                                 Proceed to Payment
@@ -176,14 +236,65 @@ function Events() {
         {teamOpen ? <div className="cart-body">
             <div className="cart-main">
                 <div className='cart-header'>
-                <div>Team Details</div>
+                <div>Team Details for {events.find(event=>event.id===teamEvent).name}</div>
                    <div className='close-cart' onClick={()=>{setTeamOpen(false)}}>X</div>
                 </div>
-                <div className='cart-content'>
-                  Team Lead: 
+                <div className='team-content'>
+                  <div>Team Lead : {userData.evg_id}</div>
+                  <div>Member 1 : <input type="text" placeholder="Team Member 1 EVG ID" 
+                  onChange={
+                      (e)=>{
+                        const toset = {
+                            ...JSON.parse(localStorage.eventsData)
+                        }
+                        toset[teamEvent].member1 = e.target.value;
+                        toset[teamEvent].isRegistered = true;
+                        toset[teamEvent].team_id = '22EVG'+nanoid(3).replace('-','Z').replace('_','X').toUpperCase()+Date.now().toString().substr(7);
+                        setEventsData(toset);
+                      }
+                   }/></div>
+                   <div>Member 2 : <input type="text" placeholder="Team Member 1 EVG ID" 
+                  onChange={
+                      (e)=>{
+                        const toset = {
+                            ...JSON.parse(localStorage.eventsData)
+                        }
+                        toset[teamEvent].member2 = e.target.value;
+                        toset[teamEvent].isRegistered = true;
+                        toset[teamEvent].team_id = '22EVG'+nanoid(3).replace('-','Z').replace('_','X').toUpperCase()+Date.now().toString().substr(7);
+                        setEventsData(toset);
+                      }
+                   }/></div>
+                   <div>Member 3 : <input type="text" placeholder="Team Member 1 EVG ID" 
+                  onChange={
+                      (e)=>{
+                        const toset = {
+                            ...JSON.parse(localStorage.eventsData)
+                        }
+                        toset[teamEvent].member3 = e.target.value;
+                        toset[teamEvent].isRegistered = true;
+                        toset[teamEvent].team_id = '22EVG'+nanoid(3).replace('-','Z').replace('_','X').toUpperCase()+Date.now().toString().substr(7);
+                        setEventsData(toset);
+                      }
+                   }/></div>
+                </div>
+                <div className='text-center mb-4'>
+                <button className='cart-checkout-button'
+                          onClick={()=>{
+                            setcartItems({...cartItems, [teamEvent]:true});
+                            setTeamOpen(false);
+                          }}
+                          >
+                                Add to registration cart
+                          </button>
                 </div>
             </div>
         </div> : ''}
+        {loading ? <div>
+            <div className="h-full w-full bg-gray-700 opacity-70 flex items-center justify-center fixed top-0">
+          <div className='w-10 h-10 rounded-3xl border-t-2 border-r-2 animate-spin'>.</div>
+          </div>
+          </div> : ''}
     </div>
   );
 }

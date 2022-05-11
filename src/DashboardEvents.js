@@ -30,15 +30,29 @@ function classNames(...classes) {
 export default function Dashboard() {
   const [userId, setUserId] = useState('');
   const navigate = useNavigate();
+  const [loading,setLoading] = useState(true);
   const [userData, setUserData]= useState({
     name: "",
     email: '',
     imageUrl: false,
     evg_id: 'Loading...',
   });
+  const [eventsData, setEventsData] = useState({ 
+      biz_debate : {},
+      biz_plan : {},
+      brain_it_out : {},
+      case_study : {},
+      hackathon : {},
+      mock_ipl : {},
+      reels : {},
+      stockify : {},
+  });
   useEffect(() => {
       localStorage.userData = JSON.stringify(userData);
   },[userData])
+  useEffect(() => {
+    localStorage.eventsData = JSON.stringify(eventsData);
+  },[eventsData])
   useEffect(()=>{
     fetch('https://stormy-journey-29948.herokuapp.com/').then(()=>{
       console.log('Welcome to the dashboard');
@@ -54,6 +68,13 @@ export default function Dashboard() {
         setUserId(user.uid)
         const docRef = doc(db, "users", user.uid);
         const docSnap = await getDoc(docRef);
+        const toset = {}
+        for await (const key of Array.from(Object.keys(eventsData))){
+          const ref = doc(db, `users/${user.uid}/registered`, key);
+          const snap = await getDoc(ref);
+          toset[key] = snap.data();
+        }
+        setEventsData(toset);
         if (docSnap.exists()) {
           setUserData({
             name: user.displayName,
@@ -61,6 +82,7 @@ export default function Dashboard() {
             imageUrl: user.photoURL,
             ...docSnap.data(),
           })
+          setLoading(false);
         } else {
           console.log("User Not Found");
           // navigate('/');
@@ -215,6 +237,11 @@ export default function Dashboard() {
               </>
             )}
           </Disclosure>
+          {loading ? <div>
+            <div className="h-full w-full bg-gray-700 opacity-70 flex items-center justify-center fixed top-0">
+          <div className='w-10 h-10 rounded-3xl border-t-2 border-r-2 animate-spin'>.</div>
+          </div>
+          </div> : ''}
         </div>
         <Allevents />
       </div>

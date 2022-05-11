@@ -134,7 +134,7 @@
     margin-right: auto;
     background-color: white;
     width: 50%;
-    min-width: 300px;
+    min-width: 350px;
     max-height: 70%;
     color: #112666;
     padding: 1rem;
@@ -171,6 +171,21 @@
     padding: 1rem;
     color: #15141a;
     font-size: 1.2rem;
+}
+.team-content {
+    padding: 1rem;
+    color: #15141a;
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.team-content div{
+    margin: 0.5rem;
+}
+.team-content input{
+    border-radius: 7px;
 }
 .cart-content-item{
     display: flex;
