@@ -10,33 +10,22 @@ export default function SignUp() {
   const [userId, setUserId] = useState('');
   const [evgId,setEvgId] = useState('');
   const [userDetails, setUserDetails] = useState({
-    name: {
-      first: '',
-      last: '',
-    },
-    email: '',
+    name: false,
+    email: " ",
     number: false,
     gender: false,
     college: false,
-    college_id: false,
-    department: false,
+    refferalCode: "code",
     city: false,
     state: false,
-    reg_events:{
-      brain_it_out: false,
-      ipr_workshop: false,
-      hackathon: {
-        is_registered: false,
-        is_lead: false,
-        team_id: '',
-      },
-      logo_and_poster: false
-    }
+    photoUrl:" ",
+    uid:" "
   });
   async function updateUser(){
     try {
       await setDoc(doc(db, "users", userId), {...userDetails,
-      evg_id: evgId
+      evg_id: evgId,
+      uid: userId
       });
     } catch (error) {
       setError('Something went wrong... please try again');
@@ -46,7 +35,7 @@ export default function SignUp() {
     let e = true
     Object.values(userDetails).forEach(value=>{
       if(!value){
-        setError('Please fill all the details');
+        setError(`Please fill all the details to continue`);
         e = false;
       }
     });
@@ -74,7 +63,7 @@ export default function SignUp() {
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {
           if(docSnap.data()?.evg_id){
-               navigate('/dashboard')
+              //  navigate('/dashboard')
           }
         }
       }
@@ -96,32 +85,19 @@ export default function SignUp() {
             <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
               <div className="space-y-6">
               <div>
-              <label htmlFor="fname" className="block text-sm font-medium text-gray-700">
-               First Name
+              <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+               Full Name
               </label>
               <div className="mt-1">
                 <input
                   type="text"
                   className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
                   placeholder="Enter your full name"
-                  onChange={(e)=>{setUserDetails({...userDetails,name:{...userDetails.name,first:e.target.value}})}}
+                  onChange={(e)=>{setUserDetails({...userDetails,name:e.target.value})}}
                 />
               </div>
             </div>
 
-            <div>
-              <label htmlFor="lname" className="block text-sm font-medium text-gray-700">
-               Last Name
-              </label>
-              <div className="mt-1">
-                <input
-                  type="text"
-                  className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
-                  placeholder="Enter your full name"
-                  onChange={(e)=>{setUserDetails({...userDetails,name:{...userDetails.name,last:e.target.value}})}}
-                />
-              </div>
-            </div>
 
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700">
@@ -185,31 +161,20 @@ export default function SignUp() {
 
             <div>
               <label htmlFor="" className="block text-sm font-medium text-gray-700">
-                College ID
+                Refferal EVG ID
               </label>
               <div className="mt-1">
                 <input
                   type="text"
                   className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
-                  placeholder="Enter your college ID"
-                  onChange={(e)=>{setUserDetails({...userDetails,college_id:e.target.value})}}
+                  placeholder="Enter Refferal EVG ID"
+                  onChange={(e)=>{if(e.target.value){
+                    setUserDetails({...userDetails,refferalCode:e.target.value})
+                  }}}
                 />
               </div>
             </div>
                 
-            <div>
-              <label htmlFor="" className="block text-sm font-medium text-gray-700">
-                Department
-              </label>
-              <div className="mt-1">
-                <input
-                  type="text"
-                  className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
-                  placeholder="Enter your college department"
-                  onChange={(e)=>{setUserDetails({...userDetails,department:e.target.value})}}
-                />
-              </div>
-            </div>
 
             <div>
               <label htmlFor="" className="block text-sm font-medium text-gray-700">

@@ -15,7 +15,8 @@ export default function SignUp() {
     }
     return (
       <>
-        <div className="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+        <div>
+          <div className="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
           <div className="sm:mx-auto sm:w-full sm:max-w-md">
             <img
               className="mx-auto h-12 w-auto"
@@ -25,11 +26,11 @@ export default function SignUp() {
             <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-100">Sign up for Envisage</h2>
           </div>
   
-          <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-            <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+          <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md bg-gradient-to-r p-1 from-blue-400 to-green-500 rounded-lg">
+            <div className="bg-black text-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
               <div className="space-y-6">
                 <img 
-                src="https://img.freepik.com/free-vector/mobile-login-concept-illustration_114360-83.jpg?w=740&t=st=1649533414~exp=1649534014~hmac=50691585f45d46f0e31b5f012b9105776315b3623790e9d6a5b25ea3b7f93104"
+                src="https://cdni.iconscout.com/illustration/premium/thumb/sign-up-page-1886582-1598253.png"
                 />
                 <div>
                   <button
@@ -48,6 +49,7 @@ export default function SignUp() {
               </div>
             </div>
           </div>
+        </div>
         </div>
       </>
     )

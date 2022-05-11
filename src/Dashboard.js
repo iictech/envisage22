@@ -9,16 +9,14 @@ MailIcon,
 UsersIcon,
 PhoneIcon} from '@heroicons/react/outline'
 import logo from "./logo.png"
+import rulebook from './rulebook.pdf';
 import { useEffect, useState } from 'react';
 import {db,auth, onAuthStateChanged, doc, getDoc} from "./firebase";
 import {useNavigate} from 'react-router-dom';
 const navigation = [
   { name: 'Dashboard', href: '/dashboard', current: true },
-  { name: 'Registered Events', href: '/registered-events', current: false },
-  { name: 'All Events', href: '/all-events', current: false },
-  { name: 'Calendar', href: '/calender', current: false },
-  { name: 'Rules', href: '/rules', current: false },
-  { name: 'Cart', href: '/cart', current: false }
+  { name: 'Events', href: '/dashboard/events', current: false },
+  { name: 'Rules', href: rulebook, current: false },
 ]
 const userNavigation = [
   { name: 'Sign out', href: '/sign-out' },
@@ -32,10 +30,7 @@ export default function Dashboard() {
   const [userId, setUserId] = useState('');
   const navigate = useNavigate();
   const [userData, setUserData]= useState({
-    name: {
-      first: '',
-      last: ''
-    },
+    name: "",
     email: '',
     imageUrl: false,
     evg_id: 'Loading...',
@@ -75,8 +70,8 @@ export default function Dashboard() {
   return (
     <>
       <div className="min-h-full">
-        <div className="bg-gray-800 pb-32">
-          <Disclosure as="nav" className="bg-gray-800">
+        <div className="bg-black pb-32">
+          <Disclosure as="nav" className="bg-black">
             {({ open }) => (
               <>
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -114,13 +109,6 @@ export default function Dashboard() {
                       </div>
                       <div className="hidden md:block">
                         <div className="ml-4 flex items-center md:ml-6">
-                          <button
-                            type="button"
-                            className="bg-gray-800 p-1 text-gray-400 rounded-full hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
-                          >
-                            <span className="sr-only">View notifications</span>
-                            <BellIcon className="h-6 w-6" aria-hidden="true" />
-                          </button>
 
                           {/* Profile dropdown */}
                           <Menu as="div" className="ml-3 relative">
@@ -198,7 +186,7 @@ export default function Dashboard() {
                         <img className="h-10 w-10 rounded-full" src={userData.imageUrl || logo} alt="" />
                       </div>
                       <div className="ml-3">
-                        <div className="text-base font-medium leading-none text-white">{userData.name.first + ' ' + userData.name.last}</div>
+                        <div className="text-base font-medium leading-none text-white">{userData.name}</div>
                         <div className="text-sm font-medium leading-none text-gray-400">{userData.email}</div>
                       </div>
                       <button
@@ -228,7 +216,7 @@ export default function Dashboard() {
           </Disclosure>
           <header className="py-10">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h1 className="text-3xl font-bold text-white">Welcome {userData.name.first + ' ' + userData.name.last}</h1>
+              <h1 className="text-3xl font-bold text-white">Welcome {userData.name}</h1>
             </div>
           </header>
         </div>
@@ -247,16 +235,6 @@ export default function Dashboard() {
                   <div className='flex p-4 items-center justify-center flex-col'>
                   <AcademicCapIcon className="h-6 w-6" aria-hidden="true"/>
                   <p>College : {userData.college}</p>
-                  </div>
-
-                  <div className='flex p-4 items-center justify-center flex-col'>
-                  <IdentificationIcon className="h-6 w-6" aria-hidden="true"/>
-                  <p>College ID : {userData.college_id}</p>
-                  </div>
-
-                  <div className='flex p-4 items-center justify-center flex-col'>
-                  <ChipIcon className="h-6 w-6" aria-hidden="true"/>
-                  <p>Department : {userData.department}</p>
                   </div>
 
                   <div className='flex p-4 items-center justify-center flex-col'>

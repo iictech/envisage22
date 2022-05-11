@@ -15,21 +15,22 @@ export default function SignUp() {
     }
     return (
       <>
-        <div className="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+        <div>
+          <div className="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
           <div className="sm:mx-auto sm:w-full sm:max-w-md">
             <img
               className="mx-auto h-12 w-auto"
               src={logo}
               alt="logo"
             />
-            <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-100">Sign In to Envisage</h2>
+            <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-100">Sign in to Envisage</h2>
           </div>
   
-          <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-            <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+          <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md bg-gradient-to-r p-1 from-blue-400 to-green-500 rounded-lg">
+            <div className="bg-black text-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
               <div className="space-y-6">
-              <img 
-                src="https://img.freepik.com/free-vector/mobile-login-concept-illustration_114360-83.jpg?w=740&t=st=1649533414~exp=1649534014~hmac=50691585f45d46f0e31b5f012b9105776315b3623790e9d6a5b25ea3b7f93104"
+                <img 
+                src="https://cdni.iconscout.com/illustration/premium/thumb/sign-up-page-1886582-1598253.png"
                 />
                 <div>
                   <button
@@ -39,7 +40,7 @@ export default function SignUp() {
                   >
                     <svg height={15} viewBox="0 0 488 512" fill="white" className="mr-3">
                     <path d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"/></svg>
-                    Sign In with Google
+                    Sign in with Google
                   </button>
                 </div>
                 <div className="mt-1 text-red-800 text-center">
@@ -48,6 +49,7 @@ export default function SignUp() {
               </div>
             </div>
           </div>
+        </div>
         </div>
       </>
     )
