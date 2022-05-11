@@ -1,0 +1,14 @@
+body{
+  background: black;
+}
+img{
+  padding-bottom: 20px;
+  width: 600px;
+
+}
+.images{
+  padding: 4rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}

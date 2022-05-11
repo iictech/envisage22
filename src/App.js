@@ -10,6 +10,7 @@ import Gallery from "./Gallery";
 import Sponsors from "./Sponsors";
 import DashboardEvents from "./DashboardEvents";
 import Etalk from "./Etalk";
+import Events from "./eventshome";
 import Team from "./my-team/components/teamLayout";
 function SignOut() {
   const navigate = useNavigate();
@@ -29,6 +30,7 @@ export default function App() {
         <Route path="/sign-up" exact element={<SignUp />}></Route>
         <Route path="/dashboard" exact element={<Dashboard />}></Route>
         <Route path="/team" exact element={<Team />}></Route>
+        <Route path="/events" exact element={<Events />}></Route>
         <Route
           path="/dashboard/events"
           exact

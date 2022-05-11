@@ -4,6 +4,7 @@ import { faChartLine, faExternalLink, faBookOpen, faCartFlatbed, faChartGantt, f
 import { useEffect, useState } from 'react';
 import {db,auth, onAuthStateChanged, doc, getDoc,setDoc} from "./firebase";
 import { nanoid } from 'nanoid';
+import {useNavigate} from 'react-router-dom';
 const events = [
     {
         name:'Biz Plan',
@@ -83,6 +84,7 @@ function Events() {
     const [subtotal, setSubtotal] = useState(0);
     const [charges, setCharges] = useState(0);
     const [userData,setUserData] = useState({});
+    const navigate = useNavigate();
     async function registeronfirebase() {
         setTeamOpen(false);
         setLoading(true);
@@ -91,6 +93,7 @@ function Events() {
             await setDoc(ref,eventsData[key]);
         }
         setLoading(false);
+        navigate('/dashboard/events');
     }
     async function displayRazorpay(){
         //POST request to Nodejs
@@ -139,7 +142,7 @@ function Events() {
             setUserData(JSON.parse(localStorage.userData))
          setEventsData(JSON.parse(localStorage.eventsData))
         setLoading(false);
-        }, 2000);
+        }, 4000);
         let subtotal = 0;
         Object.keys(cartItems).forEach(key => {
             subtotal += parseFloat(events.find(event => event.id === key).price);
@@ -251,6 +254,7 @@ function Events() {
                         const toset = {
                             ...JSON.parse(localStorage.eventsData)
                         }
+                        toset[teamEvent].teamLead = userData.evg_id;
                         toset[teamEvent].member1 = e.target.value;
                         toset[teamEvent].isRegistered = true;
                         toset[teamEvent].team_id = '22EVG'+nanoid(3).replace('-','Z').replace('_','X').toUpperCase()+Date.now().toString().substr(7);
