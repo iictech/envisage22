@@ -8,10 +8,14 @@ import sponsors7 from"./images/sponsors/2021/sponsor7.png"
 import sponsors8 from"./images/sponsors/2021/sponsor8.png"
 import sponsors9 from"./images/sponsors/2021/sponsor9.jpg"
 import sponsors10 from"./images/sponsors/2021/sponsor10.png"
+import Footer from "./Footer";
+import Header from "./Header";
+
 import React from  "react";
 import "./sponsors_header.css";
 function App2(){
     return (<>
+              <Header/>
     <div className="slidetop">
     <a href="#main"><i className="fas fa-arrow-up"></i></a>
 </div>
@@ -63,6 +67,7 @@ function App2(){
         </div>
     </header>
 </div>
+    <Footer/>
     </>)
 }
 export default App2
