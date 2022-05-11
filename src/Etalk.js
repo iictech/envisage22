@@ -29,17 +29,18 @@ function Etalk() {
         </p>
       </div>
       <CustomCarousel
-        auto={true}
-        infinite={true}
-        label={" Previous Year Guest:"}
-        data={previousYearGuest}
-      />
-      <CustomCarousel
         auto={false}
         infinite={false}
         label={"Present Year Guest:"}
         data={presentYearGuest}
       />
+      <CustomCarousel
+        auto={true}
+        infinite={true}
+        label={" Previous Year Guest:"}
+        data={previousYearGuest}
+      />
+
       <Footer />
     </div>
   );
