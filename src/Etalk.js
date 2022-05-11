@@ -10,7 +10,7 @@ function Etalk() {
   return (
     <div>
       <Example />
-      <div style={{ height: "100vh" }}>
+      <div className="mb-32 sm:mb-16" style={{ height: "100vh" }}>
         <h1 className="text-center text-3xl sm:text-4xl  mt-4 font-medium text-gray-100">
           E-Talk
         </h1>
