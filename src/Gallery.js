@@ -35,25 +35,6 @@ function App() {
     <div className="slidetop">
         <a href="#main"><i className="fas fa-arrow-up"></i></a>
     </div>
-    <nav>
-        <div className="handburger">
-            <i className="fas fa-bars" onclick="toggleActive()"></i>
-            <i className="far fa-times-circle" onclick="toggleActive()"></i>
-        </div>
-        <div className="overlay" onmousemove="movemouse(event)">
-            <ul>
-                <li><a onmouseover="mousein(this)" onmouseout="mouseout(this)" href="../index.html">Home</a></li>
-                <li><a onmouseover="mousein(this)" onmouseout="mouseout(this)" href="./about.html">About Envisage</a>
-                </li>
-                <li><a onmouseover="mousein(this)" onmouseout="mouseout(this)" href="./events.html">Events</a></li>
-                <li><a onmouseover="mousein(this)" onmouseout="mouseout(this)" href="./etalk.html">E-Talk</a></li>
-                <li><a onmouseover="mousein(this)" onmouseout="mouseout(this)" href="./team.html">Team</a></li>
-                <li><a onmouseover="mousein(this)" onmouseout="mouseout(this)" href="#">GALLERY</a></li>
-                <li><a onmouseover="mousein(this)" onmouseout="mouseout(this)" href="./sponsors.html">sponsors</a></li>
-            </ul>
-            <div className="cursor"></div>
-        </div>
-    </nav>
     <div id="main" style={{backgroundColor:"Black"}}>
         <header className="neon">
             <h1>GALLERY</h1>
