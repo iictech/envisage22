@@ -21,9 +21,14 @@ const events = [
         description:'A case challenge where participants with strong business and problem- solving skills compete among themselves to develop the best solution to a real business case study within a given time frame. Participants can showcase their great analytical and presenting skills and prove their entrepreneurial mettle.',
         id:'case_study',
         logo:faBookOpen,
-        price:'20',
+<<<<<<< HEAD
+        price:'0',
         isTeamEvent:true,
         link:'https://bit.ly/evg22_casestudy'
+=======
+        price:'0',
+        isTeamEvent:true
+>>>>>>> e67377bdf8393ff494e4ca7e8af4e27e2f0a1874
     },
     {
         name:'Stockify',
@@ -62,7 +67,7 @@ const events = [
         link:'https://bit.ly/evg22_mockipl'
     },
     {
-        name:'Business Debate',
+        name:'Biz Debate',
         description:'An engaging event where participants will be tested on their ability to analyse market problems and present viable arguments to convince the audience via their debating and oratory skills.',
         id:'biz_debate',
         logo:faBusinessTime,

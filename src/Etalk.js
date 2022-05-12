@@ -30,7 +30,7 @@ function Etalk() {
       </div>
       <CustomCarousel
         auto={false}
-        infinite={false}
+        infinite={true}
         label={"Present Year Guest:"}
         data={presentYearGuest}
       />

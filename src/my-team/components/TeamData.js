@@ -17,106 +17,132 @@ import i16 from '../images/images/i16.jpg';
 import i17 from '../images/images/i17.jpg';
 import i18 from '../images/images/i18.jpg';
 import i19 from '../images/images/i19.jpg';
+import i20 from '../images/images/i20.jpeg';
 
 const TeamData = [
   {
     id: 1,
     name: "Sanjana Dey",
-    profession: "Co-head of Content Wing",
+    profession: "Co-head Content Wing",
+    linkedin: "https://www.linkedin.com/in/sanjana-dey-b4588a202",
     img: i1
   },
   {
     id: 2,
     name: "Arkajit Chakraborty ",
-    profession: "Media Wing Co-Head",
+    profession: "Co-Head Media Wing",
+    linkedin: "https://www.linkedin.com/mwlite/in/arkajit-chakraborty-b96063201",
     img: i2
   },
   {
     id: 3,
     name: "Shweta Sharma ",
-    profession: "Content Wing - Head",
+    profession: "Head Content Wing",
+    linkedin: "https://www.linkedin.com/in/shweta-sharma-b39646200",
     img: i3
   },
   {
     id: 4,
     name: "Rohan Jha ",
-    profession: "Co-Head of Startup Wing, Member of Content Wing ",
+    profession: "Co-Head Startup Wing",
+    linkedin: "https://www.linkedin.com/in/rohan-jha-476296213",
     img: i4
   },  {
     id: 5,
     name: "Sneha Priya ",
-    profession: "Social Media Co-head",
+    profession: "Co-head Social Media",
+    linkedin: "https://www.linkedin.com/in/sneha-priya-b5890a214",
     img: i5
   },  {
     id: 6,
     name: "Shubhayu Majumdar ",
     profession: "Co-Head Technical Team",
+    linkedin: "https://www.linkedin.com/in/shubhayumajumdar",
     img: i6
   },  {
     id: 7,
     name: "Rajeev Tiwari ",
-    profession: "Resource Co-Head",
+    profession: "Resource Management Co-Head",
+    linkedin: "https://www.linkedin.com/in/rajeev-tiwari-88503b143",
     img: i7
   },  {
     id: 8,
     name: "Rahul Kumar  ",
-    profession: "Admin co-head",
+    profession: "Admininstration Co-Head",
+    linkedin: "https://www.linkedin.com/in/rahul-kumar-7938751a1",
     img: i8
   },  {
     id: 9,
     name: "DIPANNITA KUNDU ",
-    profession: "Social Media Head",
+    profession: "Social Media Wing Head",
+    linkedin: "http://linkedin.com/in/dipannita-kundu-998b621a6",
     img: i9
   },  {
     id: 10,
     name: "Ishika Mondal ",
-    profession: "Pr and outreach head",
+    profession: "PR and Outreach Head",
+    linkedin: "#",
     img: i10
   },  {
     id: 11,
     name: "Ayushi Dey ",
     profession: "Management Head",
+    linkedin: "https://www.linkedin.com/in/ayushi-dey-390",
     img: i11
   },  {
     id: 12,
     name: "Shristi Rai ",
     profession: "PR and Outreach Co-Head",
+    linkedin: "https://www.linkedin.com/in/shristi-rai-03a264209",
     img: i12
   },  {
     id: 13,
     name: "Kushal Guha ",
     profession: "Management Co-Head ",
+    linkedin: "https://www.linkedin.com/in/kushal-guha-8a2983173/",
     img: i13
   },  {
     id: 14,
     name: "Nikhil Agarwal  ",
     profession: "Co-Convener and Sponsorship Head",
+    linkedin: "https://www.linkedin.com/in/iamnikhilagarwal",
     img: i14
   },  {
     id: 15,
     name: "Koustav Banerjee ",
     profession: "Media and Graphics Head, Administration Head",
+    linkedin: "https://www.linkedin.com/in/kens3i",
     img: i15
   },  {
     id: 16,
     name: "Ankit Kumar Gorain ",
     profession: "Management Co-Head",
+    linkedin: "https://www.linkedin.com/in/akgorain/",
     img: i16
   },  {
     id: 17,
     name: "Ankit Podder",
-    profession: "TECH HEAD ",
+    profession: "Head Technical Wing",
+    linkedin: "https://www.linkedin.com/in/ankit-podder-59156916a",
     img: i17
   },  {
     id: 18,
     name: "Siladitta ",
     profession: "Co-Head graphic Wing , Head of IIC press wing",
+    linkedin: "https://www.linkedin.com/in/siladitya-marik-1abb03225",
     img: i18
   },  {
     id: 19,
     name: "Anushka Mukherjee ",
-    profession: "Co-Head, Media Wing",
+    profession: "Co-Head Media Wing",
+    linkedin: "https://www.linkedin.com/in/anushka-mukherjee-3b62081ab/",
     img: i19
+  },
+  {
+    id: 20,
+    name: "Abhipreya Ghosh",
+    profession: "Startup Wing Co-Head",
+    linkedin: "https://www.linkedin.com/in/abhipreya-ghosh-531576211/"
   }
 ];
 export default TeamData;
