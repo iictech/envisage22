@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChartLine, faExternalLink, faBookOpen, faCartFlatbed, faChartGantt, faBrain, faCode, faBaseballBatBall, faBusinessTime } from '@fortawesome/free-solid-svg-icons'
 import { useEffect, useState } from 'react';
 import {db,auth, onAuthStateChanged, doc, getDoc,setDoc} from "./firebase";
+import { collection, query, where, getDocs } from "firebase/firestore";
 import { nanoid } from 'nanoid';
 import {useNavigate} from 'react-router-dom';
 const events = [
@@ -13,6 +14,7 @@ const events = [
         logo:faChartLine,
         price:'100',
         isTeamEvent:true,
+        link:'https://bit.ly/evg22_bizplan'
     },
     {
         name:'Case Study',
@@ -20,7 +22,8 @@ const events = [
         id:'case_study',
         logo:faBookOpen,
         price:'20',
-        isTeamEvent:true
+        isTeamEvent:true,
+        link:'https://bit.ly/evg22_casestudy'
     },
     {
         name:'Stockify',
@@ -28,7 +31,8 @@ const events = [
         id:'stockify',
         logo:faChartGantt,
         price:'60',
-        isTeamEvent:false
+        isTeamEvent:false,
+        link:'https://bit.ly/evg22_casestudy'
     },
     {
         name:'Brain-it-Out',
@@ -36,7 +40,8 @@ const events = [
         id:'brain_it_out',
         logo:faBrain,
         price:'100',
-        isTeamEvent:true
+        isTeamEvent:true,
+        link:'https://bit.ly/evg22_brainitout'
     },
     {
         name:'Hack Ur Way',
@@ -44,7 +49,8 @@ const events = [
         id:'hackathon',
         logo:faCode,
         price:'150',
-        isTeamEvent:true
+        isTeamEvent:true,
+        link:'https://bit.ly/evg22_hackurway'
     },
     {
         name:'Mock IPL',
@@ -52,7 +58,8 @@ const events = [
         id:'mock_ipl',
         logo:faBaseballBatBall,
         price:'150',
-        isTeamEvent:true
+        isTeamEvent:true,
+        link:'https://bit.ly/evg22_mockipl'
     },
     {
         name:'Business Debate',
@@ -60,7 +67,8 @@ const events = [
         id:'biz_debate',
         logo:faBusinessTime,
         price:'50',
-        isTeamEvent:false
+        isTeamEvent:false,
+        link:'https://bit.ly/evg22_tweeters'
     },
     {
         name:'Reel O Mania',
@@ -68,7 +76,8 @@ const events = [
         id:'reels',
         logo:faChartLine,
         price:'0',
-        isTeamEvent:false
+        isTeamEvent:false,
+        link:'https://bit.ly/evg22_reelomania'
     }
 ]
 
@@ -80,18 +89,24 @@ function Events() {
     const [teamOpen, setTeamOpen] = useState(false);
     const [teamEvent,setTeamevent] = useState();
     const [eventsData, setEventsData] = useState({});
+    const [eventsData2, setEventsData2] = useState({});
     const [cartItems, setcartItems] = useState({});
     const [subtotal, setSubtotal] = useState(0);
     const [charges, setCharges] = useState(0);
     const [userData,setUserData] = useState({});
     const navigate = useNavigate();
     async function registeronfirebase() {
+        setcartItems({});
         setTeamOpen(false);
         setLoading(true);
         for await (const key of Array.from(Object.keys(eventsData))){
             const ref = doc(db, `users/${userData.uid}/registered`, key);
             await setDoc(ref,eventsData[key]);
         }
+        const users = collection(db, "users");
+        const q = query(users, where("evgId", "==", "CA"));
+        const querySnapshot = await getDocs(q);
+
         setLoading(false);
         navigate('/dashboard/events');
     }
@@ -137,12 +152,6 @@ function Events() {
     },[eventsData])
     useEffect(() => {
         setcartCounter(Object.keys(cartItems).length);
-        setLoading(true);
-        setTimeout(() => {
-            setUserData(JSON.parse(localStorage.userData))
-         setEventsData(JSON.parse(localStorage.eventsData))
-        setLoading(false);
-        }, 10000);
         let subtotal = 0;
         Object.keys(cartItems).forEach(key => {
             subtotal += parseFloat(events.find(event => event.id === key).price);
@@ -150,6 +159,15 @@ function Events() {
         setSubtotal(subtotal);
         setCharges(subtotal * 2 / 100);
     } , [cartItems]);
+    useEffect(()=>{
+        setLoading(true);
+        setTimeout(() => {
+        setUserData(JSON.parse(localStorage.userData))
+         setEventsData(JSON.parse(localStorage.eventsData))
+         setEventsData2(JSON.parse(localStorage.eventsData))
+        setLoading(false);
+        }, 2000);
+    },[])
   return (
     <div className="event-body">
         <div className="event-container">
@@ -171,8 +189,9 @@ function Events() {
                         {event.description}
                         <p>Registration Price : ₹ {event.price}</p>
                         </div>
-                        <div className="event-button-container">
-                        {eventsData?.[event.id]?.isRegistered ? <div className='text-base text-blue-700 pb-2'>Registered</div>:<button className="event-register-button" onClick={(e)=>{
+                        {/* <div className='text-center'>
+                            {eventsData2?.[event.id]?.isRegistered ? <div className='text-base text-blue-700 pb-2'>Registered</div>:<div className="event-button-container">
+                        <button className="event-register-button" onClick={(e)=>{
                             if(event.isTeamEvent){
                                 setTeamevent(event.id);
                                setTeamOpen(true);
@@ -186,16 +205,23 @@ function Events() {
                         }} disabled={cartItems[event.id] ? true : false}>
                         <div>{cartItems[event.id] ? 'Added To Cart' : 'Add to registration cart'}</div>
                         <div>{cartItems[event.id] ? '' : <FontAwesomeIcon icon={faCartFlatbed} />}</div>
-                        </button>}
+                        </button>
+                        </div>}
+                        </div> */}
+                        <div className='event-button-container'>
+                        <a href={event.link} target="_blank" rel="noopener noreferrer" className='event-register-button text-center'>
+                            Register Now
+                        </a>
                         </div>
+                        
                     </div>
                 ))}
               </div>
             </div>
         </div>
-        <div className="cart-icon border-2" onClick={()=>{setcartOpen(true)}}>
+        {/* <div className="cart-icon border-2" onClick={()=>{setcartOpen(true)}}>
         <FontAwesomeIcon icon={faCartFlatbed} /> {cartCounter}
-        </div>
+        </div> */}
         {cartOpen ? <div className="cart-body">
             <div className="cart-main">
                 <div className='cart-header'>
@@ -257,7 +283,7 @@ function Events() {
                         toset[teamEvent].teamLead = userData.evg_id;
                         toset[teamEvent].member1 = e.target.value;
                         toset[teamEvent].isRegistered = true;
-                        toset[teamEvent].team_id = '22EVG'+nanoid(3).replace('-','Z').replace('_','X').toUpperCase()+Date.now().toString().substr(7);
+                        toset[teamEvent].teamId = '22EVG'+nanoid(3).replace('-','Z').replace('_','X').toUpperCase()+Date.now().toString().substr(7);
                         setEventsData(toset);
                       }
                    }/></div>
@@ -269,7 +295,7 @@ function Events() {
                         }
                         toset[teamEvent].member2 = e.target.value;
                         toset[teamEvent].isRegistered = true;
-                        toset[teamEvent].team_id = '22EVG'+nanoid(3).replace('-','Z').replace('_','X').toUpperCase()+Date.now().toString().substr(7);
+                        toset[teamEvent].teamId = '22EVG'+nanoid(3).replace('-','Z').replace('_','X').toUpperCase()+Date.now().toString().substr(7);
                         setEventsData(toset);
                       }
                    }/></div>
@@ -281,7 +307,7 @@ function Events() {
                         }
                         toset[teamEvent].member3 = e.target.value;
                         toset[teamEvent].isRegistered = true;
-                        toset[teamEvent].team_id = '22EVG'+nanoid(3).replace('-','Z').replace('_','X').toUpperCase()+Date.now().toString().substr(7);
+                        toset[teamEvent].teamId = '22EVG'+nanoid(3).replace('-','Z').replace('_','X').toUpperCase()+Date.now().toString().substr(7);
                         setEventsData(toset);
                       }
                    }/></div>
