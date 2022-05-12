@@ -11,7 +11,7 @@ const TeamCard = () => {
       <Header/>
       <div className="container">
         {TeamData.map((curr, index) => {
-          const { id, name, profession, img } = curr;
+          const { id, name, profession, img, linkedin } = curr;
           return (
             <>
               <div className="card" key={id}>
@@ -29,7 +29,7 @@ const TeamCard = () => {
                   <span>{profession}</span>
                 </div>
                 <div className="titleLink">
-                  <a >
+                  <a href={linkedin}>
                     <AiFillLinkedin />
                   </a>
                 </div>
