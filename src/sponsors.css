@@ -15,6 +15,9 @@ body{
   color: #fff;
   align-items: center;
 }
+.sponsors div{
+  padding-bottom: 2rem;
+}
 
 .partner-header{
   font-size: 3vw;
