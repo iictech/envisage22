@@ -1,4 +1,4 @@
-import './App.css';
+import './sponsors.css';
 import cfp from './images/sponsor_images/cfp.png'
 import d2c from './images/sponsor_images/d2c.png'
 import ff from './images/sponsor_images/ff.png'
