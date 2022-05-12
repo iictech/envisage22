@@ -6,6 +6,7 @@ import {db,auth, onAuthStateChanged, doc, getDoc,setDoc} from "./firebase";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { nanoid } from 'nanoid';
 import {useNavigate} from 'react-router-dom';
+import rulebook from './rulebook.pdf';
 const events = [
     {
         name:'Biz Plan',
@@ -183,8 +184,10 @@ function Events() {
                     >
                         <div className="event-item-header">
                         <div className="event-logo"><FontAwesomeIcon icon={event.logo} /></div>
-                            <span>{event.name} &nbsp;{linkico ? <FontAwesomeIcon icon={faExternalLink} size="sm"/>:''}</span>
-                        </div>
+                           <a href={rulebook}>
+                           <span>{event.name} &nbsp;{linkico ? <FontAwesomeIcon icon={faExternalLink} size="sm"/>:''}</span>
+                               </a>                      
+                             </div>
                         <div className="event-item-content">
                         {event.description}
                         <p>Registration Price : ₹ {event.price}</p>
