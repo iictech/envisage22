@@ -5,7 +5,7 @@ export default function Terms(){
               <p className="p-3">
               <p className="p-2">You should read the terms and conditions carefully before using the website, as they will automatically apply to you. Copying or modifying any part of our site or our trademarks, in any way, is not allowed. Any attempt to extract the source code of the site, translating it into other languages, or making its derivative versions, is not allowed. The website, database rights, trademarks, copyrights, and other intellectual property rights, belong to IIC TMSL.</p>
 <p className="p-2">IIC TMSL is devoted to ensuring that the website is functional and helpful, by all means. Hence, we hold the right to make changes to the site or charge for the provided services, for any reason and at any time. We assure you that you will not be charged for the services provided without any explanation about what you’re being charged for. </p>
-<p className="p-2">The Biz Verse website stores the personal data provided by you for providing our services. We advise you to keep your access to the site secure. Hence, in order to keep your phone safe from vulnerabilities like malicious/malware/viruses, we recommend you not root or jailbreak your phone. It can jeopardize your phone’s security which could lead to the Biz Verse app not working properly.
+<p className="p-2">The Envisage website stores the personal data provided by you for providing our services. We advise you to keep your access to the site secure. Hence, in order to keep your phone safe from vulnerabilities like malicious/malware/viruses, we recommend you not root or jailbreak your phone. It can jeopardize your phone’s security which could lead to the Envisage app not working properly.
 The website uses third-party services that declare their own Terms and Conditions.</p> 
 <p className="p-2">The link to the Terms and Conditions of third party services used by the website is mentioned below:
     <ul className="p-2 text-blue-500 underline underline-offset-2">
@@ -23,7 +23,7 @@ The website uses third-party services that declare their own Terms and Condition
               <p className="p-2">From time to time, IIC TMSL may update our Terms and Conditions. Hence, we advise you to view this page occasionally for the changes. We will notify you about any changes in the Terms and Conditions by posting them on this page.
 The terms and conditions are effective as of 2022-04-14</p>
 <h1 className="text-xl font-bold p-2">Contact Us</h1>
-<p className="p-2">In case you have suggestions or questions regarding our Terms and Conditions, please contact us at bizverse2k22@gmail.com</p>
+<p className="p-2">In case you have suggestions or questions regarding our Terms and Conditions, please contact us at iic.tmsl@gmail.com</p>
 
 </p>
             </div>

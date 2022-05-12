@@ -39,7 +39,7 @@ It should be noted that these third parties have access to your Personal Informa
 The terms and conditions are effective as of 2022-04-14</p>
 
 <h1 className="text-xl font-bold p-2">Contact Us</h1>
-<p className="p-2">In case you have any suggestions or questions regarding our Privacy Policy, please contact us at bizverse2k22@gmail.com</p>
+<p className="p-2">In case you have any suggestions or questions regarding our Privacy Policy, please contact us at iic.tmsl@gmail.com</p>
 
 
 </p>
