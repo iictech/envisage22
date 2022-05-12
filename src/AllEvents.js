@@ -19,7 +19,7 @@ const events = [
         description:'A case challenge where participants with strong business and problem- solving skills compete among themselves to develop the best solution to a real business case study within a given time frame. Participants can showcase their great analytical and presenting skills and prove their entrepreneurial mettle.',
         id:'case_study',
         logo:faBookOpen,
-        price:'20',
+        price:'0',
         isTeamEvent:true
     },
     {
@@ -55,7 +55,7 @@ const events = [
         isTeamEvent:true
     },
     {
-        name:'Business Debate',
+        name:'Biz Debate',
         description:'An engaging event where participants will be tested on their ability to analyse market problems and present viable arguments to convince the audience via their debating and oratory skills.',
         id:'biz_debate',
         logo:faBusinessTime,
