@@ -15,6 +15,8 @@ import Team from "./my-team/components/teamLayout";
 import Terms from "./Terms";
 import Refund from "./Refund";
 import Privacy from "./Privacy";
+import About from "./AboutUs";
+import Contact from "./ContactUs";
 function SignOut() {
   const navigate = useNavigate();
   signOut(auth)
@@ -46,6 +48,8 @@ export default function App() {
         <Route path="/terms" exact element={<Terms />}></Route>
         <Route path="/refunds" exact element={<Refund />}></Route>
         <Route path="/privacy" exact element={<Privacy />}></Route>
+        <Route path="/about-us" exact element={<About />}></Route>
+        <Route path="/contact-us" exact element={<Contact />}></Route>
       </Routes>
     </Router>
   );

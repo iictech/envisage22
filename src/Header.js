@@ -74,6 +74,12 @@ export default function Example() {
               <a href="/sponsors" className="text-base font-medium text-gray-100 hover:text-gray-500">
               Sponsors
               </a>
+              <a href="/about-us" className="text-base font-medium text-gray-100 hover:text-gray-500">
+              About Us
+              </a>
+              <a href="/contact-us" className="text-base font-medium text-gray-100 hover:text-gray-500">
+              Contact Us
+              </a>
               {/* <a href="/contact-us" className="text-base font-medium text-gray-100 hover:text-gray-500">
               Contact Us
               </a> */}
@@ -145,6 +151,9 @@ export default function Example() {
               </a>
               <a href="/sponsors" className="text-base font-medium text-gray-100 hover:text-gray-500">
               Sponsors
+              </a>
+              <a href="/about-us" className="text-base font-medium text-gray-100 hover:text-gray-500">
+              About Us
               </a>
               <a href="/contact-us" className="text-base font-medium text-gray-100 hover:text-gray-500">
               Contact Us
