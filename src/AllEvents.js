@@ -33,7 +33,7 @@ const events = [
         logo:faChartGantt,
         price:'60',
         isTeamEvent:false,
-        link:'https://bit.ly/evg22_casestudy'
+        link:'https://bit.ly/evg22_stockify'
     },
     {
         name:'Brain-it-Out',
