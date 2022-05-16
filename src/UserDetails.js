@@ -36,7 +36,7 @@ export default function SignUp() {
   async function updateUser(){
     try {
       await setDoc(doc(db, "users", userId), {...userDetails,
-      evg_id: evgId,
+      evgId: evgId,
       uid: userId
       });
       for await (const key of Array.from(Object.keys(eventsData))){
@@ -78,8 +78,8 @@ export default function SignUp() {
         const docRef = doc(db, "users", user.uid);
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {
-          if(docSnap.data()?.evg_id){
-              //  navigate('/dashboard')
+          if(docSnap.data()?.evgId){
+               navigate('/dashboard')
           }
         }
       }
