@@ -5,6 +5,10 @@ import lwt from '../sponsor_images/lwt.png'
 import sol from '../sponsor_images/solvoix.png'
 import Card from './sp-card-prop'
 
+//phone = name of company
+//email = link of website
+//name = (some-type) of partner
+
 export default function Spcard(){
     return(
         <>
