@@ -17,6 +17,7 @@ import Refund from "./Refund";
 import Privacy from "./Privacy";
 import About from "./AboutUs";
 import Contact from "./ContactUs";
+import TestPayment from "./TestPayment";
 function SignOut() {
   const navigate = useNavigate();
   signOut(auth)
@@ -50,6 +51,7 @@ export default function App() {
         <Route path="/privacy" exact element={<Privacy />}></Route>
         <Route path="/about-us" exact element={<About />}></Route>
         <Route path="/contact-us" exact element={<Contact />}></Route>
+        <Route path="/test-pay" exact element={<TestPayment />}></Route>
       </Routes>
     </Router>
   );
