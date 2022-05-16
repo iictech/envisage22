@@ -5,13 +5,16 @@ import Header from "./Header"
 
 function App() {
   return (
-    <>
+    <div className='full'>
       <Header/>
+      <div className='sp-header-wrap'>
+        <h1 className='sp-header threeD'> Sponsors </h1>
+      </div>
       <div className="sponsors">
         <SponsorCard/>
       </div>
       <Footer/>
-    </>
+    </div>
   );
 }
 
