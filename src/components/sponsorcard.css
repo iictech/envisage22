@@ -1,0 +1,58 @@
+.sponsors{
+  background: rgb(26, 26, 26);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  color: white;
+  margin: 0;
+  padding: 2% 25% 0 25%;
+}
+
+.Card .img1{
+  border: 5px solid #c7bbbb;
+  border-radius: 20px;
+  box-shadow: 15px 15px 12px rgb(0, 0, 0);
+  padding: 10px;
+  margin-bottom: 100px;
+  margin-right: 70px;
+  margin-left: 70px;
+}
+
+.Card h3{
+  padding-left: 10px;
+  margin-bottom: -10px;
+  text-align: left;
+  font-weight: bold;
+}
+
+.Card p{
+  padding-left: 10px;
+  margin-bottom: -10px;
+  text-align: left;
+}
+
+.phone{
+  font-weight: 300;
+  font-size: medium;
+  padding-bottom: 1vh;
+}
+
+.email{
+  margin-top: 9px;
+  padding-bottom: 20px;
+  font-weight: lighter;
+  font-size: small;
+  text-decoration: none;
+  color: aqua;
+  text-align: end;
+}
+
+.email:hover{
+  color: rgb(177, 221, 221);
+}
+
+.logo{
+  border-radius: 20px;
+  padding: 5px 10px 5px 10px;
+}
