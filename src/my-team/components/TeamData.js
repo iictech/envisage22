@@ -142,7 +142,8 @@ const TeamData = [
     id: 20,
     name: "Abhipreya Ghosh",
     profession: "Startup Wing Co-Head",
-    linkedin: "https://www.linkedin.com/in/abhipreya-ghosh-531576211/"
+    linkedin: "https://www.linkedin.com/in/abhipreya-ghosh-531576211/",
+    img: i20
   }
 ];
 export default TeamData;

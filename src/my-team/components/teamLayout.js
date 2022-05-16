@@ -4,11 +4,7 @@ import "../teamStyle.css";
 const TeamLay = () => {
   return (
     <>
-      <div className="page-wrapper">
-        <div className="row">
           <TeamCard />
-        </div>
-      </div>
     </>
   );
 };
