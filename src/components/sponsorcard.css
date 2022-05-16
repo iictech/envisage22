@@ -1,0 +1,88 @@
+.full{
+
+  background: rgb(26, 26, 26);
+}
+
+.sponsors{
+  background: rgb(26, 26, 26);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  color: white;
+  margin: 0;
+  padding: 2% 25% 0 25%;
+}
+
+.threeD {
+  background: rgb(26, 26, 26);
+  color: #f1ebe5;
+  text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgb(0 0 0 / 10%), 0 0 5px rgb(0 0 0 / 10%), 0 1px 3px rgb(0 0 0 / 30%), 0 3px 5px rgb(0 0 0 / 20%), 0 5px 10px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 20%), 0 20px 20px rgb(0 0 0 / 15%);
+}
+
+.sp-header {
+  background: rgb(26, 26, 26);
+  font-size: 500%;
+  text-align: center;
+  transition: 1s;
+}
+
+.Card .img1{
+  border: .2vw solid #c7bbbb;
+  border-radius: 1.2vw;
+  box-shadow: 1.5vw 1.5vh 1.2vw rgb(0, 0, 0);
+  padding: 1.0vw 1.0vh;
+  margin-bottom: 10.0vh;
+  margin-right: 4.0vw;
+  margin-left: 4.0vw;
+}
+
+.Card h3{
+  padding-left: 1.0vw;
+  margin-bottom: -1.0vh;
+  text-align: left;
+  font-weight: bold;
+}
+
+.Card p{
+  padding-left: 1.0vw;
+  margin-bottom: -1.0vh;
+  text-align: left;
+}
+
+.phone{
+  font-weight: 300;
+  font-size: medium;
+  padding-bottom: 1vh;
+}
+
+.email{
+  margin-top: .9vh;
+  padding-bottom: 2.0vh;
+  font-weight: lighter;
+  font-size: small;
+  text-decoration: none;
+  color: aqua;
+  text-align: end;
+}
+
+.email:hover{
+  color: rgb(177, 221, 221);
+}
+
+.logo{
+  border-radius: 20px;
+  padding: .5vw 1.0px .5vh 1.0vh;
+}
+
+@media screen and (max-width: 487px) {
+  .sp-header {
+    font-size: 400%;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .sp-header {
+    font-size: 300%;
+  }
+}
