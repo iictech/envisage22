@@ -7,23 +7,24 @@ export default function Card(props){
     const name = props.name;
     const phone = props.phone;
     const email = props.email;
-    // const config = {};
-    
+    //phone = name of company
+    //email = link of website
+    //name = (some-type) of partner
     return(
         <>
-            <div className = 'Card'>
+            <div className = 'sp-Card'>
 
-                <div className = 'Top'>
+                <div className = 'sp-Top'>
 
-                    <div className = 'img1'>
+                    <div className = 'sp-img1'>
 
-                        <img className="logo" src = {Img} width = {wide} height = {high} alt = 'cat'/>
+                        <img className="sp-logo" src = {Img} width = {wide} height = {high} alt = 'cat'/>
                         
-                        <h3 className = 'name'> {name}  </h3>
+                        <h3 className = 'sp-name'> {name}  </h3>
                         
-                        <p className = 'phone'> {phone} </p>
+                        <p className = 'sp-phone'> {phone} </p>
                         
-                        <a className = 'email' href={email}> Visit </a>
+                        <a className = 'sp-email' href={email}> Visit </a>
 
                     </div>
 

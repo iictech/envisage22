@@ -27,7 +27,7 @@
   transition: 1s;
 }
 
-.Card .img1{
+.sp-Card .sp-img1{
   border: .2vw solid #c7bbbb;
   border-radius: 1.2vw;
   box-shadow: 1.5vw 1.5vh 1.2vw rgb(0, 0, 0);
@@ -37,26 +37,26 @@
   margin-left: 4.0vw;
 }
 
-.Card h3{
+.sp-Card .sp-name{
   padding-left: 1.0vw;
   margin-bottom: -1.0vh;
   text-align: left;
   font-weight: bold;
 }
 
-.Card p{
+.sp-Card .sp-phone{
   padding-left: 1.0vw;
   margin-bottom: -1.0vh;
   text-align: left;
 }
 
-.phone{
+.sp-phone{
   font-weight: 300;
   font-size: medium;
-  padding-bottom: 1vh;
+  padding-bottom: 2vh;
 }
 
-.email{
+.sp-email{
   margin-top: .9vh;
   padding-bottom: 2.0vh;
   font-weight: lighter;
@@ -66,11 +66,11 @@
   text-align: end;
 }
 
-.email:hover{
+.sp-email:hover{
   color: rgb(177, 221, 221);
 }
 
-.logo{
+.sp-logo{
   border-radius: 20px;
   padding: .5vw 1.0px .5vh 1.0vh;
 }
