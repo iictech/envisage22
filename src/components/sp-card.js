@@ -31,7 +31,7 @@ export default function Spcard(){
                 width = {240}
                 height = {170}
                 name = "Ecosystem partner"
-                phone = "Free Flow"
+                phone = "FreeFlow"
                 email = "https://freeflow.zone/"
             />
             
