@@ -43,7 +43,7 @@ function CustomCarousel({ label, data, auto, infinite }) {
               options={{ max: 25 }}
               style={{ margin: "5em 0" }}
             >
-              <Card image={el.image} title={el.name} subTitle={el.occ} />
+              <Card image={el.image} title={el.name} subTitle={el.occ} link={el.link}/>
             </Tilt>
           );
         })}

@@ -8,6 +8,7 @@ const presentYearGuest = [
     name: "Rishabh Jain",
     occ: "Accidental content creator @Labour Law Advisor",
     linkedin: "https://www.linkedin.com/in/rishsamjain/",
+    link: "https://bit.ly/E-TALK-RISHABH-JAIN"
   },
   {
     id: 2,
@@ -15,6 +16,7 @@ const presentYearGuest = [
     name: "Vimal Kumar",
     occ: "Founder - VivaLyf Innovations. Winner of Shark Tank India",
     linkedin: "https://www.linkedin.com/in/vimalkumarrn/",
+    link: null,
   },
 ];
 export default presentYearGuest;
